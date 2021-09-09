@@ -1,6 +1,12 @@
-import {Mail} from '../lib/Mail';
-import * as mail from '..';
-import {readFileSync} from 'fs';
+import {Mail} from '../src/lib/Mail';
+import * as mail from '../src';
+import {config} from 'dotenv';
+
+const testConfig = config({path: __dirname + '/.env'});
+
+if (testConfig.error) {
+    throw testConfig.error;
+}
 
 class Template extends Mail {
     public build() {
@@ -8,29 +14,24 @@ class Template extends Mail {
         this._view = {name: 'view', data: {text: 'This is a test'}};
         this._text = 'This is a test for text based email'
         this._replyTo = 'reply1@test.it';
-        this._attachments = [{
-            filename: 'image',
-            content: readFileSync('/home/izzius/yarn-error.log')
-        }]
     }
 }
 
 const sender = {
-    host: '127.0.0.1',
-    port: 1025,
-    secure: false,
+    host: process.env.MAIL_HOST,
+    port: Number(process.env.MAIL_PORT),
+    secure: !!process.env.MAIL_SECURE,
     auth: {
-        user: null,
-        pass: null
+        user: 'user',
+        pass: 'password'
     },
     from: {
-        name: 'Sender',
-        address: 'sender@test'
+        name: process.env.MAIL_FROM_NAME,
+        address: process.env.MAIL_FROM_ADDRESS
     }
 }
 
 mail.init(sender, __dirname);
-
 mail.send({to: 'account@test'}, new Template()).then(res => {
     console.log(res);
 }).catch(e => {
