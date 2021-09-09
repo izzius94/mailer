@@ -4,6 +4,7 @@ node_modules
 /dist
 /docs
 
+compiled.zip
 
 # Log files
 npm-debug.log*

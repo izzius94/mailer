@@ -1,7 +1,7 @@
 {
   "name": "mailer",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "description": "Prova desc",
   "license": "MIT",
   "dependencies": {
@@ -13,6 +13,13 @@
     "@types/ejs": "^3.1.0",
     "@types/node": "^16.9.0",
     "dotenv": "^10.0.0",
-    "typedoc": "^0.21.9"
+    "typedoc": "^0.17.0",
+    "typedoc-plugin-external-module-name": "^4.0.6",
+    "typedoc-theme-dark": "^0.0.5",
+    "typescript": "^4.4.2"
+  },
+  "scripts": {
+    "build-win": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command IF (Test-Path dist) {Remove-Item -force -Recurse dist; tsc} ELSE {tsc}; compress-archive -Path .\\dist\\, .\\package.json -Force -DestinationPath compiled.zip",
+    "doc": "typedoc ./src"
   }
 }

@@ -1,5 +1,5 @@
 {
-    "entryPoints": ["src"],
     "out": "./docs",
-    "includeVersion": true
+    "includeVersion": true,
+    "theme": "./node_modules/typedoc-theme-dark/dist/dark/"
 }

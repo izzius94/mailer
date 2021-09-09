@@ -1,6 +1,7 @@
 /**
  * ok va bene!
- * @module
+ * @packageDocumentation
+ * @module entrypoint
  */
 import {Mail} from './lib/Mail';
 import * as Mailer from './lib/Mailer';

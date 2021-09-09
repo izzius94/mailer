@@ -6,7 +6,7 @@ import {renderFile} from 'ejs';
 /**
  * Class to interract with nodemailer
  */
-export default class {
+export default class Mailer{
     /** The message to sent */
     private readonly _message: IMessage
     /** The mail template */

@@ -1,5 +1,4 @@
-import {Mail} from '../src/lib/Mail';
-import * as mail from '../src';
+import * as mail from '../dist';
 import {config} from 'dotenv';
 
 const testConfig = config({path: __dirname + '/.env'});
@@ -8,7 +7,7 @@ if (testConfig.error) {
     throw testConfig.error;
 }
 
-class Template extends Mail {
+class Template extends mail.Mail {
     public build() {
         this._subject = 'Test email 2';
         this._view = {name: 'view', data: {text: 'This is a test'}};
