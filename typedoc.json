@@ -1,5 +1,4 @@
 {
     "out": "./docs",
-    "includeVersion": true,
-    "theme": "./node_modules/typedoc-theme-dark/dist/dark/"
+    "includeVersion": true
 }

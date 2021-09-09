@@ -1,6 +1,5 @@
 /**
- * ok va bene!
- * @packageDocumentation
+ * ok va bene! ;)
  * @module entrypoint
  */
 import {Mail} from './lib/Mail';

@@ -13,13 +13,16 @@
     "@types/ejs": "^3.1.0",
     "@types/node": "^16.9.0",
     "dotenv": "^10.0.0",
-    "typedoc": "^0.17.0",
-    "typedoc-plugin-external-module-name": "^4.0.6",
-    "typedoc-theme-dark": "^0.0.5",
+    "typedoc": "^0.21.9",
+    "typedoc-github-wiki-theme": "^0.5.1",
+    "typedoc-gitlab-wiki-theme": "^0.1.2",
+    "typedoc-plugin-markdown": "^3.10.4",
     "typescript": "^4.4.2"
   },
   "scripts": {
     "build-win": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command IF (Test-Path dist) {Remove-Item -force -Recurse dist; tsc} ELSE {tsc}; compress-archive -Path .\\dist\\, .\\package.json -Force -DestinationPath compiled.zip",
-    "doc": "typedoc ./src"
+    "doc-html": "typedoc ./src --plugin none --out docs/html",
+    "doc-github": "typedoc --theme ./node_modules/typedoc-github-wiki-theme/dist --out docs/github ./src",
+    "doc-gitlab": "typedoc --theme ./node_modules/typedoc-gitlab-wiki-theme/dist --out docs/gitlab ./src"
   }
 }
