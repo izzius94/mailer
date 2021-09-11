@@ -30,10 +30,13 @@ const sender = {
     }
 }
 
-mail.init(sender, __dirname);
-mail.send({to: 'account@test'}, new Template()).then(res => {
-    console.log(res);
-}).catch(e => {
-    console.log(e);
+describe('Mailer', () => {
+    it('Should send the mail without problems', function(done) {
+        mail.init(sender, __dirname);
+        mail.send({to: 'account@test'}, new Template()).then(res => {
+            done();
+        }).catch(e => {
+            done(e);
+        });
+    });
 });
-

@@ -13,6 +13,7 @@
     "@types/ejs": "^3.1.0",
     "@types/node": "^16.9.0",
     "dotenv": "^10.0.0",
+    "mocha": "^9.1.1",
     "typedoc": "^0.21.9",
     "typedoc-github-wiki-theme": "^0.5.1",
     "typedoc-gitlab-wiki-theme": "^0.1.2",
@@ -20,6 +21,7 @@
     "typescript": "^4.4.2"
   },
   "scripts": {
+    "test": "mocha --exit -r ts-node/register 'test/**/*.ts'",
     "build-win": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command IF (Test-Path dist) {Remove-Item -force -Recurse dist; tsc} ELSE {tsc}; compress-archive -Path .\\dist\\, .\\package.json -Force -DestinationPath compiled.zip",
     "doc-html": "typedoc ./src --plugin none --out docs/html",
     "doc-github": "typedoc --theme ./node_modules/typedoc-github-wiki-theme/dist --out docs/github ./src",

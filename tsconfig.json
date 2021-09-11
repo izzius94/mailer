@@ -2,12 +2,8 @@
     "compilerOptions": {
       "module": "commonJs",
       "moduleResolution": "node",
-      "pretty": true,
-      "sourceMap": false,
       "outDir": "./dist",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "lib": ["es2015", "DOM"],
+      "lib": ["es2015"],
       "target": "ES5",
       "declaration": true
     },
